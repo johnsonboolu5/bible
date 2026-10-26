@@ -1172,7 +1172,7 @@ let narratorSlug = store.get("narrator", "the-narrator");
 if(!NARRATORS.some(n=>n.slug===narratorSlug)) narratorSlug = "the-narrator";
 function narrator(){ return NARRATORS.find(n=>n.slug===narratorSlug) || NARRATORS[0]; }
 function voiceShort(){ return narrator().name; }
-function storyAudioURL(story){ return "audio/" + story.id + "/" + narratorSlug + ".mp3"; }
+function storyAudioURL(story){ return story.id + "--" + narratorSlug + ".mp3"; }
 let previewAudio = null;
 function stopPreview(){
   if(previewAudio){ try{ previewAudio.pause(); }catch(e){} previewAudio = null; }
